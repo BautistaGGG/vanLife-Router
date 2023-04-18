@@ -7,7 +7,7 @@ import Footer from "./componentes/Footer"
 //PAGES
 import Home from './pages/Home'
 import About from "./pages/About"
-import Vans from "./pages/Vans"
+import VansList from "./pages/VansList"
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -16,7 +16,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path='/' element={ <Home/> }/>
         <Route path='/about' element={ <About/> }/>
-        <Route path='/vans' element={ <Vans/> }/>
+        <Route path='/vans' element={ <VansList/> }/>
       </Routes>
       <Footer/>
     </BrowserRouter>
