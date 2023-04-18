@@ -1,0 +1,135 @@
+/* MIS ESTILOS MOBILE */
+body,html{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+img{
+  max-width: 100%;
+  display: block;
+}
+
+/*NAVIGATION*/
+
+header{
+  background: #FFF7ED;
+}
+
+nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em;
+}
+
+nav img{
+  width: 125px;
+}
+
+nav h1{
+  text-transform: uppercase;
+  font-weight: 900;
+  color: #000;
+  margin: 0;
+  cursor:pointer
+}
+
+nav ul{
+  display: flex;
+  gap: 1em;
+  margin: 0;
+}
+
+nav ul li{
+  padding: 1em 0;
+  list-style: none;
+  color: #4D4D4D;
+  cursor:pointer
+}
+
+a{
+  color: #000;
+  text-decoration: none;
+}
+
+/*HOME CONTENT*/
+.home--main{
+  background-image: url("../src/assets/imageFondo.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+  color: white;
+}
+
+.home--main section{
+  padding: 2em 1em;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.home--main section h1{
+  text-shadow: 1px 1px 3px #000;
+  font-weight: 900;
+  line-height: 42px;
+}
+
+.home--main .home--btn{
+  font-family: 'Inter', sans-serif;
+  background: #FF8C38;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 1em 0em;
+  margin: 1.25em 0;
+  width: 100%;
+}
+
+/*ABOUT CONTENT*/
+
+section{
+  padding: 1em;
+}
+
+section h1{
+  font-size: 2em
+}
+
+section p{
+  font-size: 1em;
+}
+
+article{
+  background: #FFCC8D;
+  padding: 1.25em 2em;
+  border-radius: 3px;
+  margin: 1.8em 0;
+}
+
+article h4{
+  margin: 5px 0;
+  font-size: 1.5em;
+}
+
+article button{
+  margin-top: 2em;
+  background: #161616;
+  color: white;
+  padding: 1em 1.5em;
+  border: none;
+  border-radius: 5px;
+}
+
+/*FOOTER*/
+footer p{
+  background: #252525;
+  color: #AAAAAA;
+  font-size: 14px;
+  padding: 1.25em 0;
+  margin: 0;
+  text-align: center;
+}
