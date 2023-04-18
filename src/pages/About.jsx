@@ -1,5 +1,6 @@
 import React from 'react'
 import ImageAbout from "../assets/imageAbout.svg"
+import { Link } from 'react-router-dom'
 
 function About() {
   return (
@@ -17,7 +18,9 @@ function About() {
         <article>
           <h4>Your destination is waiting.</h4>
           <h4>Your van is ready.</h4>
-          <button>Explore our vans</button>
+          <Link to="/vans">
+            <button>Explore our vans</button>
+          </Link>
         </article>
       </section>
     </main>

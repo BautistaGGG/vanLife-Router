@@ -49,9 +49,27 @@ nav ul li{
   cursor:pointer
 }
 
-a{
+.LinkTag{
   color: #000;
   text-decoration: none;
+  position: relative;
+}
+
+.LinkTag::after{
+  position: absolute;
+  background: #FF8C38;
+  content: "";
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  transform: translateX(0%);
+  transition: transform 0.5s ease;
+}
+
+.LinkTag::after :hover{
+  width: 100%;
+  transform: translateX(100%);
 }
 
 /*HOME CONTENT*/
@@ -66,10 +84,6 @@ a{
 .home--main section{
   padding: 2em 1em;
   text-align: left;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
 .home--main section h1{
@@ -83,10 +97,15 @@ a{
   background: #FF8C38;
   color: white;
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 1em 0em;
   margin: 1.25em 0;
   width: 100%;
+  cursor: pointer;
+}
+
+.home--btn:hover{
+  opacity: .8;
 }
 
 /*ABOUT CONTENT*/
@@ -122,6 +141,7 @@ article button{
   padding: 1em 1.5em;
   border: none;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 /*FOOTER*/
