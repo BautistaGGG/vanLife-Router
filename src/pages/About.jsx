@@ -15,10 +15,10 @@ function About() {
         <p>
           Our team is full of vanlife enthusiasts who know firsthand the magic of touring the world on 4 wheels.
         </p>
-        <article>
+        <article className='about--article'>
           <h4>Your destination is waiting.</h4>
           <h4>Your van is ready.</h4>
-          <Link to="/vans">
+          <Link to="/vans" className=''>
             <button>Explore our vans</button>
           </Link>
         </article>
