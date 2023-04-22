@@ -1,23 +1,32 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import LogoImg from "../assets/logo.png"
 
 function NavBar() {
+
   return (
     <header>
         <nav>
-            <Link to="/" className='logo'>
+            <NavLink to="/" className='logo'>
                 <img src={LogoImg} alt="logo" />
-            </Link>
+            </NavLink>
             <ul>
                 <li>
-                    <Link to="/" className='LinkTag'> Home </Link>
+                    <NavLink to="/host" className={({isActive}) => isActive ? "activeLink" : "LinkTag"} >
+                         Host 
+                    </NavLink>
                 </li>
+
                 <li>
-                    <Link to="/about" className='LinkTag'> About </Link>
+                    <NavLink to="/about" className={({isActive}) => isActive ? "activeLink" : "LinkTag" }>
+                         About
+                     </NavLink>
                 </li>  
+
                 <li>
-                    <Link to="/vans" className='LinkTag'> Vans </Link>
+                    <NavLink to="/vans" className={({isActive}) => isActive ? "activeLink" : "LinkTag" }>
+                         Vans 
+                    </NavLink>
                 </li>  
             </ul>
         </nav>

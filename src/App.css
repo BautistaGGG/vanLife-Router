@@ -12,6 +12,8 @@ img{
   display: block;
 }
 
+
+
 /*NAVIGATION*/
 
 nav{
@@ -46,27 +48,22 @@ nav ul li{
   cursor:pointer
 }
 
+/*NavLinks*/
+
 .LinkTag{
-  color: #000;
+  color: #4D4D4D;
   text-decoration: none;
-  position: relative;
 }
 
-.LinkTag::after{
-  position: absolute;
-  background: #FF8C38;
-  content: "";
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  transform: translateX(0%);
-  transition: transform 0.5s ease;
+.LinkTag:hover, .hostVansDetails--ul .LinkTag:hover{
+  color: #000;
+  font-weight: 900;
 }
 
-.LinkTag::after :hover{
-  width: 100%;
-  transform: translateX(100%);
+.activeLink{
+  color: #000;
+  font-weight: 900;
+  text-decoration: orange underline;
 }
 
 /*HOME CONTENT*/
@@ -188,8 +185,9 @@ section p{
   justify-content: space-between;
 }
 
-.section--namePrice h4{
+.section--namePrice h4, .vansInfo-container .section--namePrice p{
   color: #161616;
+  text-decoration: white underline;
 }
 
 .van-type {
@@ -250,11 +248,12 @@ i[class*='van-type-'] {
   padding: 2em 1.125em;
 }
 
-.vanDetails--main a{
+.vanDetails--main a, .hostVansDetails--main a{
   color: #161616;
   display: flex;
   align-items: center;
   gap: .5em;
+  cursor: pointer;
 }
 
 .vanDetails--main a img{
@@ -280,6 +279,96 @@ i[class*='van-type-'] {
   width: 100%;
   cursor: pointer;
 }
+
+
+/*HOST*/
+
+.hostDashboard--main,
+.hostIncome--main,
+.hostReviews--main,
+.hostVans--main,
+.hostVansDetails--main{
+  padding: 2em 1.125em;
+}
+
+.dashboard--ul, 
+.hostVansDetails--ul{
+  display: flex;
+  gap: 1em;
+  margin: 0;
+  padding: 2em 1.125em;
+}
+
+.dashboard--ul li,
+.hostVansDetails--ul li{
+  list-style: none;
+}
+
+/*HOST-VANS*/
+
+.hostVans--main ul{
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.hostVans--main ul li{
+  border-radius: 6px;
+  list-style: none;
+  background-color: #FFFFFF;
+  padding: 1em 2em;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.hostVans--main ul li img{
+  height: 66px;
+  border-radius: 5px;
+}
+ 
+.hostVans--main ul li h3{
+  color: #000;
+  text-decoration: white underline;
+}
+.hostVans--main ul li p{
+  color: #4D4D4D;
+  text-decoration: white underline;
+}
+
+.hostVansDetails--ul .LinkTag{
+  color: #4D4D4D;
+}
+
+/*HOST-VANSDETAILS*/
+
+.hostVansDetails--main section article{
+  background: #FFFFFF;
+  padding: 1.25em;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 1.25em;
+}
+
+.hostVansDetails--main section article img{
+  height: 160px;
+  border-radius: 5px;
+}
+
+.hostVansDetails--main section article div p {
+  font-weight: bold;
+  font-size: 18px;
+}
+.hostVansDetails--main section article div p span {
+  font-weight: 100;
+}
+
+.hostVansDetails--main .articleDos{
+  display: block;
+}
+
 
 /*FOOTER*/
 footer p{

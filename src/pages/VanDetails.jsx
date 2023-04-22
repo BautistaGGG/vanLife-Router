@@ -17,12 +17,12 @@ function VanDetails() {
   return (
     <main className='vanDetails--main'>
       <Link to="/vans">
-        <img src={Flecha} alt="flecha para volver a la página anterior" />
+        <img src={Flecha} alt="flecha para volver a la página anterior" loading='lazy' />
         <p> Back to vans </p>
       </Link>
       {vanSelected ? (
                   <article className='vanDetails--container'>
-                    <img src={vanSelected.imageUrl} alt={vanSelected.name} />
+                    <img src={vanSelected.imageUrl} alt={vanSelected.name} loading='lazy' />
                     <i className={`van-type ${vanSelected.type} selected`}>{vanSelected.type}</i>
                     <h1>{vanSelected.name}</h1>
                     <h4>${vanSelected.price} <span>/day</span> </h4>
