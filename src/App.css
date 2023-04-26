@@ -369,7 +369,29 @@ i[class*='van-type-'] {
   display: block;
 }
 
+/*HOST-VANDETAILS-ID*/
+.hostDetails--main{
+  padding: 0em 1.125em;
+}
 
+.hostDetails--main p{
+  font-weight: bold;
+}
+.hostDetails--main p span{
+  font-weight: normal;
+}
+
+.hostDetails--main .price{
+  font-size: 1.5em;
+}
+
+.hostDetails--main .price span{
+  color: #4D4D4D;
+}
+
+.hostDetails--main .littleImg{
+  height: 100px;
+}
 /*FOOTER*/
 footer p{
   background: #252525;

@@ -18,6 +18,7 @@ import Income from "./pages/host/Income"
 import Reviews from "./pages/host/Reviews"
 import HostVans from './pages/host/HostVans'
 
+/*Pages/host/id/details*/
 import HostDetails from "./pages/host/vansDetails/HostDetails"
 import HostPricing from "./pages/host/vansDetails/HostPricing"
 import HostPictures from "./pages/host/vansDetails/HostPictures"
@@ -30,6 +31,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <BrowserRouter>
       <Routes>
         <Route element={ <Layout/> }>
+          
           <Route path='/' element={ <Home/> }/>
           <Route path='about' element={ <About/> }/>
           <Route path='vans' element={ <VansList/> }/>

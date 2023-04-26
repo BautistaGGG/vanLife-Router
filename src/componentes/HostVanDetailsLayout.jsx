@@ -16,7 +16,7 @@ function HostVanDetailsLayout() {
 
     return (
       <main className='hostVansDetails--main'>
-          <Link to="/host/vans">
+          <Link to=".." relative='path'>
             <img src={Flecha} alt="flecha para volver a la página anterior" loading='lazy' />
             <p> Back to vans </p>
           </Link>
@@ -34,29 +34,22 @@ function HostVanDetailsLayout() {
               <article className='articleDos'>
                 <ul className='hostVansDetails--ul'>
                     <li>
-                        <NavLink 
-                          to={`.`}
-                          end
-                          className={({isActive}) => isActive ? "activeLink" : "LinkTag"}>
-                          Details
+                        <NavLink to={`.`} end className={({isActive}) => isActive ? "activeLink" : "LinkTag"}>
+                          Details                       
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink 
-                          to={`pricing`}
-                          className={({isActive}) => isActive ? "activeLink" : "LinkTag"}>
+                        <NavLink to={`pricing`} className={({isActive}) => isActive ? "activeLink" : "LinkTag"}>
                           Pricing
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink 
-                          to={`pictures`}
-                          className={({isActive}) => isActive ? "activeLink" : "LinkTag"}>
+                        <NavLink to={`pictures`} className={({isActive}) => isActive ? "activeLink" : "LinkTag"}>
                           Pictures
                         </NavLink>
                     </li>
                 </ul>    
-                <Outlet/>
+                <Outlet context={[vanSelected,setVanSelected]}/>
               </article> 
           </section>
       </main>
