@@ -1,36 +1,43 @@
-import React, { useEffect, useState } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import React from 'react'
+import { Link, useLocation, useLoaderData } from 'react-router-dom'
 import Flecha from "../assets/Arrow.png"
+import { gettingVans } from "../../api"
+import { requiredAuth } from '../../utils'
+
+export async function loader({ params, request }){
+  await requiredAuth(request)
+  return gettingVans(params.id)
+}
 
 function VanDetails() {
+  const location = useLocation()
 
-  const [vanSelected,setVanSelected] = useState(null)
+  const vanDetails = useLoaderData()
 
-  const parametro = useParams()
-
-  useEffect(() => {
-    fetch(`/api/vans/${parametro.id}`)
-      .then(res => res.json())
-      .then(data => setVanSelected(data.vans))
-  },[parametro.id])
+  const conditionalBackToVansList = location.state.searchParam != "" ? 
+  <p> Back to {location.state.tipoDeVan} vans </p> :
+  <p> Back to all vans </p>
 
   return (
     <main className='vanDetails--main'>
-      <Link to="/vans">
-        <img src={Flecha} alt="flecha para volver a la página anterior" loading='lazy' />
-        <p> Back to vans </p>
+      <Link 
+        to={location.state.searchParam != ""  ?  `../?${location.state.searchParam}`  :  ".."} 
+        relative='path'
+      >
+          <img 
+            src={Flecha} 
+            alt="flecha para volver a la página anterior" 
+            loading='lazy' />
+          {conditionalBackToVansList}
       </Link>
-      {vanSelected ? (
-                  <article className='vanDetails--container'>
-                    <img src={vanSelected.imageUrl} alt={vanSelected.name} loading='lazy' />
-                    <i className={`van-type ${vanSelected.type} selected`}>{vanSelected.type}</i>
-                    <h1>{vanSelected.name}</h1>
-                    <h4>${vanSelected.price} <span>/day</span> </h4>
-                    <p>{vanSelected.description}</p>
-                    <button>Rent this van</button>
-                  </article>
-      ) : <h1>Getting Data...</h1>
-      }
+      <article className='vanDetails--container'>
+        <img src={vanDetails.imageUrl} alt={vanDetails.name} loading='lazy' />
+        <i className={`van-type ${vanDetails.type} selected`}>{vanDetails.type}</i>
+        <h1>{vanDetails.name}</h1>
+        <h4>${vanDetails.price} <span>/day</span> </h4>
+        <p>{vanDetails.description}</p>
+        <button>Rent this van</button>
+      </article>
     </main>
   )
 }

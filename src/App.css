@@ -66,6 +66,11 @@ nav ul li{
   text-decoration: orange underline;
 }
 
+.iconAvatar{
+  height: 24px;
+  width: 24px;
+}
+
 /*HOME CONTENT*/
 .home--main{
   background-image: url("../src/assets/imageFondo.svg");
@@ -152,47 +157,16 @@ section p{
 
 .vanList--types li{
   display: inline-block;
-  padding: .5em 1em;
-  background: #FFEAD0;
-  color: #4D4D4D;
-  list-style: none;
-  border-radius: 5px;
 }
 
 .vanList--types li:last-child{
-  background: transparent;
-  text-decoration: underline;
   margin-left: auto;
+  padding-right: 0;
 }
 
-.vanList--types li a{
+.vanList--types li button{
   color: #000;
-  text-decoration: none;
-}
-
-.vansInfo-container{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2em;
-  padding: 0;
-}
-
-.vansInfo-container li{
-  list-style: none;
-}
-
-.vansInfo-container li img{
-  border-radius: 10px;
-}
-
-.vansInfo-container .section--namePrice{
-  display: flex;
-  justify-content: space-between;
-}
-
-.section--namePrice h4, .vansInfo-container .section--namePrice p{
-  color: #161616;
-  text-decoration: white underline;
+  border: none;
 }
 
 .van-type {
@@ -221,33 +195,54 @@ section p{
 
 .van-type.simple:hover, .van-type.simple.selected {
   background-color: #E17654;
+  text-decoration: #E17654 underline;
 }
 
 .van-type.rugged:hover, .van-type.rugged.selected {
   background-color: #115E59;
+  text-decoration: #115E59 underline;
 }
 
 .van-type.luxury:hover, .van-type.luxury.selected {
   background-color: #161616;
+  text-decoration: #161616 underline;
 }
 
 .van-type.clear-filters {
-  margin-left: -20px;
-  height: 34px;
-  padding: 6px 26px;
-  font-style: normal;
-  font-weight: 500;
-  border: none;
-  border-radius: 5px;
   text-decoration: underline;
   background-color: transparent;
   color: #4D4D4D;
+  padding-right: 0;
 }
 
 i[class*='van-type-'] {
   padding: 7px 14px;
 }
 
+.vansInfo-container{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2em;
+  padding: 0;
+}
+
+.vansInfo-container li{
+  list-style: none;
+}
+
+.vansInfo-container li img{
+  border-radius: 10px;
+}
+
+.vansInfo-container .section--namePrice{
+  display: flex;
+  justify-content: space-between;
+}
+
+.section--namePrice h4, .vansInfo-container .section--namePrice p{
+  color: #161616;
+  text-decoration: white underline;
+}
 /*VAN DETAILS*/
 .vanDetails--main{
   padding: 2em 1.125em;
@@ -255,7 +250,7 @@ i[class*='van-type-'] {
 
 .vanDetails--main a, .hostVansDetails--main a{
   color: #161616;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: .5em;
   cursor: pointer;
@@ -265,7 +260,7 @@ i[class*='van-type-'] {
   height: 10px;
 }
 .vanDetails--container img{
-  margin: 3em 0em;
+  margin: 2em 0em;
 }
 .vanDetails--container span{
   font-weight: 100;
@@ -397,6 +392,85 @@ i[class*='van-type-'] {
 .hostDetails--main .littleImg{
   height: 100px;
 }
+
+/*LOGIN page*/
+
+.login--main{
+  padding: 1em;
+  text-align: center;
+}
+
+.login--main form{
+  display: flex;
+  flex-direction: column;
+}
+
+.login--main form input{
+  padding: .5em 1em;
+  border: 1px solid #D1D5DB;
+  border-radius: 6px 6px 0px 0px;
+  cursor: pointer;
+}
+.login--main form input:nth-child(2){
+  border-radius: 0px 0px 6px 6px;
+  border-top: none;
+}
+
+.login--main form button{
+  margin-top: 1.5em;
+  background: #FF8C38;
+  color: #FFFFFF;
+  padding: 1em;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.login--main input:focus{
+  outline: 2px solid #FF8C38;
+  cursor: text;
+}
+
+.notLoggedIn, .errorMessage{
+  color: red;
+}
+
+.errorDescription{
+  background: red;
+  border: 1px solid black;
+  color: white;
+  padding: 1em;
+}
+
+.login--main p span{
+  color: #FF8C38;
+}
+.login--main button:disabled{
+  cursor: not-allowed;
+  opacity: .5;
+}
+/*NOT FOUND*/
+
+.notFound--main{
+  padding: 1em;
+  margin: 2em 0;
+  display: grid;
+}
+
+.notFound--main a{
+  background: #161616;
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 1em 0em;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/*ERROR component*/
+.error--main{
+  padding: 1em;
+}
+
 /*FOOTER*/
 footer p{
   background: #252525;

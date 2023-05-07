@@ -1,18 +1,15 @@
-import React, { useEffect, useState } from 'react'
-import { Link, NavLink, useParams, Outlet } from 'react-router-dom'
+import React from 'react'
+import { Link, NavLink, Outlet, useLoaderData } from 'react-router-dom'
 import Flecha from "../assets/Arrow.png"
+import { getHostVans } from '../../api'
+
+export function loader({params}){
+  return getHostVans(params.id)
+}
 
 function HostVanDetailsLayout() {
 
-    const parametro = useParams()
-    
-    const [vanSelected,setVanSelected] = useState(null)
-    
-    useEffect(() => {
-      fetch(`/api/host/vans/${parametro.id}`)
-        .then(res => res.json())
-        .then(data => setVanSelected(data.vans[0]))
-    },[0])
+  const vanSelected = useLoaderData()
 
     return (
       <main className='hostVansDetails--main'>
@@ -21,7 +18,6 @@ function HostVanDetailsLayout() {
             <p> Back to vans </p>
           </Link>
           <section>
-            {vanSelected !== null ? 
               <article>
                 <img src={vanSelected.imageUrl} alt={vanSelected.name} />
                 <div>
@@ -29,8 +25,7 @@ function HostVanDetailsLayout() {
                   <h2>{vanSelected.name}</h2>
                   <p>${vanSelected.price}<span>/day</span></p>
                 </div>
-              </article> : 
-              <h2>Loading VanData...</h2>}      
+              </article>     
               <article className='articleDos'>
                 <ul className='hostVansDetails--ul'>
                     <li>
@@ -49,7 +44,7 @@ function HostVanDetailsLayout() {
                         </NavLink>
                     </li>
                 </ul>    
-                <Outlet context={[vanSelected,setVanSelected]}/>
+                <Outlet context={[vanSelected]}/>
               </article> 
           </section>
       </main>
