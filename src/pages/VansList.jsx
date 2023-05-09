@@ -13,7 +13,6 @@ export function loader() {
 }
 
 function VansList() {
-  const [error,setError] = useState(null)
   
   const [searchParams,setSearchParams] = useSearchParams()
  
@@ -31,10 +30,6 @@ function VansList() {
       }
       return prevParams 
     })
-  }
-
-  if (error) {
-    return <h1>There was an error: {error.message}</h1>
   }
 
   function renderingVansElement(vans){

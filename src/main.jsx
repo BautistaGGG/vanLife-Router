@@ -1,4 +1,4 @@
-import React from 'react'
+ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { 
     createBrowserRouter,
@@ -21,19 +21,19 @@ import NotFound from './pages/NotFound'
 import Login, {loader as loginLoader, action as actionLogin} from './pages/Login'
 
 /*Pages/host*/
-import Dashboard from "./pages/host/Dashboard"
+import Dashboard, {loader as dashboardLoader} from "./pages/host/Dashboard"
 import Income from "./pages/host/Income"
 import Reviews from "./pages/host/Reviews"
 import HostVans, {loader as hostVansLoader} from './pages/host/HostVans'
 
 /*Pages/host/id/details*/
+import HostVanDetailsLayout, {loader as hostVansDetailsLayoutLoader} from './componentes/HostVanDetailsLayout'
 import HostDetails from "./pages/host/vansDetails/HostDetails"
 import HostPricing from "./pages/host/vansDetails/HostPricing"
 import HostPictures from "./pages/host/vansDetails/HostPictures"
 
 //Data
 import "../server"
-import HostVanDetailsLayout, {loader as hostVansDetailsLayoutLoader} from './componentes/HostVanDetailsLayout'
 
 //Loader
 import { loader as VanListLoader } from './pages/VansList'
@@ -63,6 +63,7 @@ const router = createBrowserRouter(createRoutesFromElements(
       <Route 
         path='vans/:id' 
         element={ <VanDetails/> }
+        errorElement={<Error/>}
         loader={vanDetailsLoader}
       />
 
@@ -71,7 +72,7 @@ const router = createBrowserRouter(createRoutesFromElements(
         index
         element={ <Dashboard /> }
         errorElement={ <Error/> }
-        loader={async ({request}) => await requiredAuth(request)}
+        loader={dashboardLoader}
       />
         <Route 
           path='income' 
@@ -86,12 +87,14 @@ const router = createBrowserRouter(createRoutesFromElements(
         <Route 
           path='vans' 
           element={ <HostVans/> }
+          errorElement={<Error/>}
           loader={hostVansLoader}
         />            
         
         <Route 
           path='vans/:id' 
           element={ <HostVanDetailsLayout/> }
+          errorElement={<Error/>}
           loader={hostVansDetailsLayoutLoader}
           >
           <Route 

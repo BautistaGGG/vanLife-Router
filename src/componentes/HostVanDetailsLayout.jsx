@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link, NavLink, Outlet, useLoaderData } from 'react-router-dom'
 import Flecha from "../assets/Arrow.png"
-import { getHostVans } from '../../api'
+import { gettingVan } from '../../api'
 
 export function loader({params}){
-  return getHostVans(params.id)
+  return gettingVan(params.id)
 }
 
 function HostVanDetailsLayout() {

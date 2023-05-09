@@ -1,4 +1,7 @@
 import React from 'react'
+import { reviewsData } from "../../../utils"
+
+console.log(reviewsData);
 
 function Reviews() {
   return (
