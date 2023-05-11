@@ -45,19 +45,19 @@ nav ul li{
   padding: 1em 0;
   list-style: none;
   color: #4D4D4D;
-  cursor:pointer
 }
 
 /*NavLinks*/
-
 .LinkTag{
   color: #4D4D4D;
   text-decoration: none;
 }
 
-.LinkTag:hover, .hostVansDetails--ul .LinkTag:hover{
+.LinkTag:hover,
+.hostVansDetails--ul .LinkTag:hover{
   color: #000;
   font-weight: 900;
+  cursor: pointer;
 }
 
 .activeLink{
@@ -69,6 +69,21 @@ nav ul li{
 .iconAvatar{
   height: 24px;
   width: 24px;
+}
+
+.logOutbtn{
+  background: transparent;
+  color: #FF8C38;
+  font-size: 1em;
+  font-weight: 600;
+  padding: 1em 0;
+  border: none;
+}
+
+.logOutbtn:hover{
+  color: #000;
+  font-weight: 900;
+  cursor: pointer;
 }
 
 /*HOME CONTENT*/
@@ -282,8 +297,7 @@ i[class*='van-type-'] {
 
 
 /*HOST*/
-
-.hostDashboard--main,
+.hostDashboard--main .dashboard,
 .hostIncome--main,
 .hostReviews--main,
 .hostVans--main,
@@ -304,7 +318,173 @@ i[class*='van-type-'] {
   list-style: none;
 }
 
+/*HOST_DASHBOARD*/
+
+.hostDashboard--main{
+  padding: 0em;
+}
+
+.dashboard--section-1{
+  background: #FFEAD0;
+}
+
+.dashboard--section-1 h2{
+  font-size: 36px;
+  margin: 0;
+}
+
+.dashboard--section-1 h1{
+  margin: 0;
+  font-weight: 900;
+}
+
+.dashboard--section-1 article{
+  margin: 1em 0;
+}
+
+.dashboard--section-1 article{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dashboard--section-1 article p a{
+  color: #4D4D4D;
+  text-decoration: underline;
+}
+
+.dashboard--section-1 article a, .dashboard--section-2 a{
+  color: #000;
+  text-decoration: none;
+}
+
+.dashboard--section-2{
+  background: #FFDDB2;
+  padding: 1.125em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dashboard--section-2 article, 
+.dashboard--section-2 article div{
+  display: flex;
+  align-items: center;
+}
+
+.dashboard--section-2 article{
+  gap: 1em;
+}
+
+.dashboard--section-2 article div h2 span{
+  color: #4D4D4D;
+  font-weight: 100;
+}
+
+.dashboard-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dashboard-container a{
+  color: #000;
+  text-decoration: none;
+}
+
+.hostVans--main ul li a{
+  color: #000;
+  text-decoration: underline white;
+  margin: 0 0 0 auto;
+}
+
+/*HOST_INCOME*/
+
+.hostIncome--main img{
+  height: 349px;
+}
+
+.hostIncome--main h1{
+  font-size: 3em;
+  margin-top: 0;
+}
+
+.hostIncome--main h2{
+  font-size: 3em;
+  font-weight: 900;
+}
+
+.hostIncome--main p, .hostIncome--main p span{
+  color: #4D4D4D;
+}
+.hostIncome--main p span{
+  text-decoration: #4D4D4D underline ;
+}
+
+.hostIncome--main .container{
+  padding: 0;
+}
+
+.hostIncome--main .container article{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hostIncome--main .container article h2{
+  font-size: 1.5em;
+}
+
+.hostIncome--main .container ul{
+  padding-left: 0;
+}
+
+.hostIncome--main .container ul li{
+  background: white;
+  padding: 1em 1.8em;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.hostIncome--main .container ul li h2{
+  font-size: 36px;
+}
+
+/*HOST_REVIEWS*/
+.hostReviews--main{
+  padding: 0em 1.125em;
+  margin-bottom: 2.5em;
+}
+
+.hostReviews--main .review--section-1{
+  padding: 0;
+}
+
+.hostReviews--main .review--section-1 h1{
+  margin-top: 0;
+}
+
+.hostReviews--main .review--section-2{
+  padding: 1em 0;
+}
+
+.hostReviews--main .review--section-2 hr{
+  margin-top: 2em;
+}
+
+.hostReviews--main img{
+  display: inline;
+}
+
+.hostReviews--main section p span{
+  color: #8C8C8C;
+}
+
 /*HOST-VANS*/
+
 
 .hostVans--main ul{
   padding: 0;
@@ -416,6 +596,7 @@ i[class*='van-type-'] {
   border-top: none;
 }
 
+
 .login--main form button{
   margin-top: 1.5em;
   background: #FF8C38;
@@ -427,8 +608,15 @@ i[class*='van-type-'] {
 }
 
 .login--main input:focus{
-  outline: 2px solid #FF8C38;
+  background: rgb(241, 239, 239);
+  outline: none;
+  border: 2px solid #FF8C38;
   cursor: text;
+}
+
+.login--main input:nth-child(2):focus{
+  background: rgb(241, 239, 239);
+  border-top: 2px solid #FF8C38;
 }
 
 .notLoggedIn, .errorMessage{

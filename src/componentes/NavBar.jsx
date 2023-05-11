@@ -4,9 +4,14 @@ import LogoImg from "../assets/logo.png"
 import avatarIcon from "../assets/avatarIcon.svg"
 function NavBar() {
 
-function logginOut(){
-    localStorage.removeItem("loggedIn")
-}
+    function logginOut(){
+        localStorage.removeItem("loggedIn")
+    }
+
+    const conditionalLogOutBtn = localStorage.length > 1 && 
+        <li className='logOutbtn' onClick={logginOut}>
+                Log out
+        </li>
 
   return (
     <header>
@@ -36,12 +41,8 @@ function logginOut(){
                     <NavLink to="login" className={({isActive}) => isActive ? "activeLink" : "LinkTag" }>
                         <img src={avatarIcon} alt="iconAvatar" className='iconAvatar' />
                     </NavLink>
-                </li>  
-                <li>
-                    <button onClick={logginOut}>
-                       Salir
-                    </button>
                 </li>
+                {conditionalLogOutBtn}  
             </ul>
         </nav>
   </header>

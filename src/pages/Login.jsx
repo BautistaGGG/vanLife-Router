@@ -21,38 +21,37 @@ export async function action({request}) {
     }
 }
 
+console.log("Ingresa estos datos en el input correspondiente para pasar la autenticación y ver la página en su totalidad / Enter this info to pass the authentication and be able to enjoy the full page")
+console.log("email: testeando@algo.com - password: p123");
+
 function Login() { 
     const message = useLoaderData()
     const errorMessage = useActionData()
     const navigation = useNavigation()
 
-  return (
+    const mustLoginMessage = message && 
+        <> 
+            <h4 className='notLoggedIn'> {message} </h4> 
+            <pre>Apreta F12 para ver la consola y ver la información necesaria</pre>
+            <pre>Press F12 to open the console and get the information needed</pre> 
+        </>
+
+    const errorMessageElement = errorMessage && <h4 className='errorMessage'> {errorMessage} </h4>
+    
+    const buttonText = navigation.state === "submitting" ? "Loggin in..." : "Log in"
+
+    return (
     <main className='login--main'>
         <h1>Sign in to your account</h1>
-        {message && <h4 className='notLoggedIn'> {message} </h4>}
-        {errorMessage && <h4 className='errorMessage'> {errorMessage} </h4>}
-        <Form 
-            method='post' 
-            replace
-        >
-            <input 
-                type="email" 
-                placeholder='Email address'
-                name='email'
-            />
-            <input 
-                type="password" 
-                placeholder='Password'
-                name='password'
-            />
+        {mustLoginMessage}
+        {errorMessageElement}
+        <Form method='post' replace>
+            <input type="email" placeholder='Email address' name='email' />
+            <input type="password" placeholder='Password' name='password' />
             <button disabled={navigation.state === "submitting"}>
-                {navigation.state === "submitting" ? 
-                    "Loggin in..." : 
-                    "Log in"
-                }
+                {buttonText}
             </button>
         </Form>
-        
         <p>Don't have an account? <span>Create one now</span> </p>
     </main>
   )
